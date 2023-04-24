@@ -8,7 +8,6 @@
     <h1>Profile</h1>
     <p for="first_name">First Name: {{ user.first_name }}</p>
     <p for="last_name">Last Name: {{ user.last_name }}</p>
-    <h1>Profile</h1>
     <p>Balance: ${{ balance }}</p>
     <form action="{{ url_for('add_funds') }}" method="post">
         <input type="submit" value="Add Funds">
