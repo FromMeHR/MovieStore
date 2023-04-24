@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Movie</title>
+{% endblock %}
+{% block body %}
+	<h1>You chosed:</h1>
+	<div class="container">
+		<h3>{{ selected_movie_name }}</h3>
+		{% if is_movie_purchased(session['user_id'], selected_movie_name) %}
+			<div class="alert alert-info">
+				This movie is already purchased.
+			</div>
+		{% else %}
+			<form action="{{ url_for('buy_movie') }}" method="post">
+				<input type="hidden" name="selected_movie_name" value="{{ selected_movie_name }}">
+				<button type="submit">Buy movie</button>
+			</form>
+		{% endif %}
+	</div>
+	<h1>Similar movies that you can also buy on our website:</h1>
+	<div class="container">
+		<div class="row">
+			{% for name in names %}
+			<div class="col">
+				<h3>{{ name }}</h3>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="row">
+			{% for poster in posters %}
+			<div class="col">
+				<img src="{{ poster }}" style="width: 250px; height: auto;">
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

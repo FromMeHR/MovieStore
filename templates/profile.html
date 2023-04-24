@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Profile</h1>
+    <p for="first_name">First Name: {{ user.first_name }}</p>
+    <p for="last_name">Last Name: {{ user.last_name }}</p>
+    <h1>Profile</h1>
+    <p>Balance: ${{ balance }}</p>
+    <form action="{{ url_for('add_funds') }}" method="post">
+        <input type="submit" value="Add Funds">
+    </form>
+    {% if purchased_movies %}
+        <h2>Your movies:</h2>
+        <ul>
+        {% for movie in purchased_movies %}
+            <li>{{ movie['movie_name'] }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Movie store</title>
+{% endblock %}
+
+{% block body %}
+
+    <h1>Movie store</h1>
+    <form method="POST" action="/">
+        <label for="movie_name">Type the movie name you want to buy:</label>
+        <input type="text" id="movie_name" name="movie_name" placeholder="Input movie">
+        <input type="submit" value="Submit">
+
+    </form>
+    <br>
+    <form method="POST" action="/">
+        <label for="movie_name">All available movies on our site:</label>
+        <select name="movie_name">
+            {% for movie_name in movie_names %}
+                <option value="{{ movie_name }}">{{ movie_name }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+{% endblock %}
