@@ -1,5 +1,4 @@
 ﻿# MovieStore
-﻿ A web application for a movie store using Python, Flask, Jupyter.
 ﻿ 1. Main page:
  ![main_page](https://user-images.githubusercontent.com/126081409/234093933-f259a5e0-ec1c-438a-a4b6-42685923e807.JPG)
 ﻿ 2. Description:
