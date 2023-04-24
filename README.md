@@ -6,7 +6,7 @@
 ﻿ 3. Registration:
 ![sign_up](https://user-images.githubusercontent.com/126081409/234094831-f93f1070-684c-4776-8847-e0fa1ac85147.JPG)
 ﻿ 4. Profile:
- ![Profile](https://user-images.githubusercontent.com/126081409/234094992-40756a1a-fd03-4f10-9d0f-41c7f25a3e71.JPG)
+ ![Profile](https://user-images.githubusercontent.com/126081409/234100158-e04236f6-7d97-43af-bd47-4b4281650d57.JPG)
 ﻿ 5. Movie search operations:
  ![Movie Search operation](https://user-images.githubusercontent.com/126081409/234095103-a4f9ba84-2157-4020-8577-05c5dc190f8d.JPG)
  ![Movie Search operation 2](https://user-images.githubusercontent.com/126081409/234095259-4916977a-3478-4050-860f-a851587fef58.JPG)
