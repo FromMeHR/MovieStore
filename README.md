@@ -8,8 +8,8 @@
 ﻿ 4. Profile:
  ![Profile](https://user-images.githubusercontent.com/126081409/234114286-bedf2c20-0ea0-4866-bd42-153ad59f499b.JPG)
 ﻿ 5. Movie search operations:
- ![Movie Search operation](https://user-images.githubusercontent.com/126081409/234095103-a4f9ba84-2157-4020-8577-05c5dc190f8d.JPG)
- ![Movie Search operation 2](https://user-images.githubusercontent.com/126081409/234095259-4916977a-3478-4050-860f-a851587fef58.JPG)
- ![Movie Search operation 3](https://user-images.githubusercontent.com/126081409/234095311-0ee2bc76-8811-4acb-8b6e-9ccacbda62ea.JPG)
+ ![Movie Search operation](https://user-images.githubusercontent.com/126081409/234301444-8abb05fd-5b59-4c99-be34-5e8114d966e6.JPG)
+ ![Movie Search operation 2](https://user-images.githubusercontent.com/126081409/234301488-4a555afb-62fb-4c40-9ac2-e0918f5d6c46.JPG)
+ ![Movie Search operation 3](https://user-images.githubusercontent.com/126081409/234301531-6bf81f90-8248-4754-ad52-79af09a8036f.JPG)
 ﻿ 6. Buying a movie:
  ![buying a movie](https://user-images.githubusercontent.com/126081409/234114434-b577c57c-57fb-442d-9563-23b5abbc9310.JPG)
