@@ -8,9 +8,9 @@
     <style>
         body
         {
-        background-repeat:no-repeat;
-        background-attached:fixed;
-        background-image:url({{url_for('static',filename='builtin/all_sides_main.jpg')}})
+        background: url({{url_for('static',filename='builtin/up.png')}}) no-repeat,
+						url(static/builtin/middle.png) fixed no-repeat,
+						url(static/builtin/left_right.png) fixed no-repeat;
         }
     </style>
 </head>
