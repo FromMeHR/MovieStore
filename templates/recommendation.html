@@ -4,26 +4,38 @@
     <title>Movie</title>
 {% endblock %}
 {% block body %}
-	<h1>You chosed:</h1>
+	<h1 style="margin-left: 20px;">You chosed:</h1>
 	<div class="container">
-		<h3>{{ selected_movie_name }}</h3>
-		{% if is_movie_purchased(session['user_id'], selected_movie_name) %}
-			<div class="alert alert-info">
-				This movie is already purchased.
+		<div class="row">
+			{% if not is_movie_purchased(session['user_id'], selected_movie_name) %}
+				<h3>{{ selected_movie_name }}
+					<form action="{{ url_for('buy_movie') }}" method="post" style="display: inline-block;">
+						<input type="hidden" name="selected_movie_name" value="{{ selected_movie_name }}">
+						<button type="submit" style="margin-left: 3px; font-size: 20px;">Buy movie</button>
+					</form>
+				</h3>
+			{% else %}
+				<h3 style="margin-left: 3px;">{{ selected_movie_name }}
+					<div class="alert alert-info" style="display: inline-block; margin-left: 3px; font-size: 14px;">
+						This movie is already purchased.
+					</div>
+				</h3>
+			{% endif %}
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<img src="{{ selected_movie_poster }}" style="width: 250px; height: auto;">
+					</div>
+				</div>
 			</div>
-		{% else %}
-			<form action="{{ url_for('buy_movie') }}" method="post">
-				<input type="hidden" name="selected_movie_name" value="{{ selected_movie_name }}">
-				<button type="submit">Buy movie</button>
-			</form>
-		{% endif %}
+		</div>
 	</div>
-	<h1>Similar movies that you can also buy on our website:</h1>
+	<h1 style="margin-left: 20px;">Similar movies that you can also buy on our website:</h1>
 	<div class="container">
 		<div class="row">
 			{% for name in names %}
 			<div class="col">
-				<h3>{{ name }}</h3>
+				<h3 style="margin-left: 3px;">{{ name }}</h3>
 			</div>
 			{% endfor %}
 		</div>
