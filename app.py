@@ -91,7 +91,8 @@ def index():
             return render_template('index.html', is_logged_in=is_logged_in, movie_names=movies['title'].values)
         else:
             names, posters = recommend(selected_movie_name)
-            return render_template('recommendation.html', names=names, posters=posters, selected_movie_name=selected_movie_name, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased)
+            selected_movie_poster = fetch_poster(movies[movies['title'] == selected_movie_name]['movie_id'].values[0])
+            return render_template('recommendation.html', names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased)
     if 'user_id' in session:
         user_id = session['user_id']
         return render_template('index.html', user_id=user_id, is_logged_in=True, movie_names=movies['title'].values)
