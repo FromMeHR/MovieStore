@@ -21,9 +21,6 @@
       <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
         <span class="fs-4">Movie store</span>
       </a>
-	  {% for message in get_flashed_messages() %}
-		<div class="alert alert-danger">{{ message }}</div>
-	  {% endfor %}
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Main</a>
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/about">Description</a>
@@ -36,6 +33,9 @@
 		<a class="btn btn-outline-primary" href="/create">Sign up</a>
    	  {% endif %}
     </div>
+    {% for message in get_flashed_messages() %}
+	<div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
    </header>
   {% block body %}{% endblock %}
 
