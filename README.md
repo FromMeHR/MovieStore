@@ -12,4 +12,5 @@
  ![Movie Search operation 2](https://user-images.githubusercontent.com/126081409/234301488-4a555afb-62fb-4c40-9ac2-e0918f5d6c46.JPG)
  ![Movie Search operation 3](https://user-images.githubusercontent.com/126081409/234301531-6bf81f90-8248-4754-ad52-79af09a8036f.JPG)
 ﻿ 6. Buying a movie:
- ![buying a movie](https://user-images.githubusercontent.com/126081409/234114434-b577c57c-57fb-442d-9563-23b5abbc9310.JPG)
+ ![buying a movie](https://user-images.githubusercontent.com/126081409/234631745-0757a853-a812-44a3-ab27-edc32067bc7e.JPG)
+
