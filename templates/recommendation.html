@@ -4,7 +4,8 @@
     <title>Movie</title>
 {% endblock %}
 {% block body %}
-	<h1 style="margin-left: 20px;">You chosed:</h1>
+<footer style="margin-left: 20px;">
+	<h1 style="margin-left:;">You chosed:</h1>
 	<div class="container">
 		<div class="row">
 			{% if not is_movie_purchased(session['user_id'], selected_movie_name) %}
@@ -16,7 +17,7 @@
 				</h3>
 			{% else %}
 				<h3 style="margin-left: 3px;">{{ selected_movie_name }}
-					<div class="alert alert-info" style="display: inline-block; margin-left: 3px; font-size: 14px;">
+					<div class="alert alert-info" style="display: inline-block; margin-left: 3px; font-size: 12px;">
 						This movie is already purchased.
 					</div>
 				</h3>
@@ -28,9 +29,22 @@
 					</div>
 				</div>
 			</div>
+			{% if reviews %}
+		        <footer style="margin-left: 10px;">
+				<h6 class="card-subtitle mb-2 text-muted" style="font-size: 20px; display:inline-block">
+					Average rating: {{ '{:.2f}'.format(avg_rating) }}
+				</h6>
+			  </footer>
+			{% else %}
+				<footer style="margin-left: 10px;">
+					<h6 class="card-subtitle mb-2 text-muted" style="font-size: 20px; display:inline-block">
+						Average rating: 0
+					</h6>
+				</footer>
+			{% endif %}
 		</div>
 	</div>
-	<h1 style="margin-left: 20px;">Similar movies that you can also buy on our website:</h1>
+	<h1 style="margin-left:;">Similar movies that you can also buy on our website:</h1>
 	<div class="container">
 		<div class="row">
 			{% for name in names %}
@@ -47,5 +61,53 @@
 			{% endfor %}
 		</div>
 	</div>
+</footer>
+<footer class="pt-2 my-md-2 pt-md-2 border-top" style="margin-left: 20px;">
+		<form action="{{ url_for('add_review') }}" method="POST">
+		<input type="hidden" name="movie_id" value="{{ movie_iddd }}">
+			<h3 style="margin-left: 5px";>Your review for this movie</h3>
+			<div class="form-group">
+				<label for="rating">Rating:</label>
+				<select class="form-control" id="rating" name="rating" required>
+					<option value="" selected disabled>Select rating</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="comment">Comment:</label>
+				<textarea class="form-control" id="comment" name="comment"></textarea>
+			</div><br>
+			<button type="submit" style="margin-left: 3px; font-size: 20px;">Add Review</button>
+		</form>
+	</footer>
+	{% if reviews %}
+    <footer class="pt-2 my-md-2 pt-md-2 border-top" style="margin-left: 20px;">
+		<h3 style="margin-left: 5px;">All reviews for {{ selected_movie_name }}:</h3>
+    </footer>
+	{% endif %}
+	{% for review in reviews %}
+		<footer style="margin-left: 20px;">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title" style="display:inline-block">{{ review.first_name1 }} {{ review.last_name1 }}</h5>, 
+						<div style="font-size: 14px; display:inline-block">
+							<h6 class="card-subtitle mb-2 text-muted" style="font-size: 14px;"> Rating: {{ review.rating }}/5 - Was added {{ review.created_at }} 
+								{% if 'user_id' in session and session['user_id'] == review.user_id %}
+								<form action="{{ url_for('delete_review') }}" method="POST" style="display: inline-block;">
+									<input type="hidden" name="review_id" value="{{ review.id }}">
+									<button type="submit" class="btn btn-danger" style="margin-left: 10px; font-size: 12px;">Delete Review</button>
+								</form>
+								{% endif %}
+							</h6>
+						</div>
+					<p class="card-text">{{ review.comment }}</p>
+				</div>
+			</div>
+		</footer>
+	{% endfor %}
 
 {% endblock %}
