@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+<footer style="margin-left: 20px;">
     <h1>Profile</h1>
     <p for="first_name">First Name: {{ user.first_name }}</p>
     <p for="last_name">Last Name: {{ user.last_name }}</p>
@@ -20,4 +21,5 @@
         {% endfor %}
         </ul>
     {% endif %}
+</footer>
 {% endblock %}
