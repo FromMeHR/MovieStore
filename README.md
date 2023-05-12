@@ -1,16 +1,19 @@
 ﻿# MovieStore
 ﻿ 1. Main page:
- ![main_page](https://user-images.githubusercontent.com/126081409/234093933-f259a5e0-ec1c-438a-a4b6-42685923e807.JPG)
+ ![main_page](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/5e7aa4e4-3a12-4c6d-af41-d095b663fe8e)
 ﻿ 2. Description:
- ![description](https://user-images.githubusercontent.com/126081409/234094622-b60c9c39-c06d-4ec2-9e48-4638c1f45d4c.JPG)
+ ![description](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/64e3f1f8-6ae5-4984-ac8b-e04cd8e46dcb)
 ﻿ 3. Registration:
- ![sign_up](https://user-images.githubusercontent.com/126081409/234094831-f93f1070-684c-4776-8847-e0fa1ac85147.JPG)
+ ![sign_up](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/dd03fd52-8a4b-4fd6-aa2c-f5c19174f39b)
 ﻿ 4. Profile:
- ![Profile](https://user-images.githubusercontent.com/126081409/234114286-bedf2c20-0ea0-4866-bd42-153ad59f499b.JPG)
+ ![Profile](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/810ee2bc-f27e-465c-9bc2-6a2f0d6555d1)
 ﻿ 5. Movie search operations:
- ![Movie Search operation](https://user-images.githubusercontent.com/126081409/234301444-8abb05fd-5b59-4c99-be34-5e8114d966e6.JPG)
- ![Movie Search operation 2](https://user-images.githubusercontent.com/126081409/234301488-4a555afb-62fb-4c40-9ac2-e0918f5d6c46.JPG)
- ![Movie Search operation 3](https://user-images.githubusercontent.com/126081409/234301531-6bf81f90-8248-4754-ad52-79af09a8036f.JPG)
-﻿ 6. Buying a movie:
- ![buying a movie](https://user-images.githubusercontent.com/126081409/234631745-0757a853-a812-44a3-ab27-edc32067bc7e.JPG)
+ ![Movie Search operation](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/28eef76c-4768-42a7-b1d5-0165373ae289)
+ ![Movie Search operation 2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/0c4fe9e8-adcd-416f-96f1-892d001e17ec)
+ ![Movie Search operation 3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/7b065b24-bd59-424f-9552-c86bed4e76fc)
+﻿ 6. Reviews:
+ ![comment1](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/c342668e-1ae3-4074-ba34-d38c8f702121)
+ ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/9ff9a368-1951-4f05-b59a-ffb31a165710)
+﻿ 7. Buying a movie:
+ ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/304f28b3-8a9c-442e-8972-d20d5fa21977)
 
