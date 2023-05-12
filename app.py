@@ -6,6 +6,7 @@ from bcrypt import hashpw, checkpw, gensalt
 import pickle
 import pandas as pd
 import requests
+import numpy as np
 
 app = Flask(__name__)
 
@@ -92,16 +93,56 @@ def index():
         else:
             names, posters = recommend(selected_movie_name)
             selected_movie_poster = fetch_poster(movies[movies['title'] == selected_movie_name]['movie_id'].values[0])
-            return render_template('recommendation.html', names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased)
+            movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+            reviews = connec.execute('SELECT * FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchall()
+            avg_rating = connec.execute('SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchone()['avg_rating']
+            return render_template('recommendation.html', movie_iddd=movie_iddd, reviews=reviews, avg_rating=avg_rating, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased)
     if 'user_id' in session:
         user_id = session['user_id']
         return render_template('index.html', user_id=user_id, is_logged_in=True, movie_names=movies['title'].values)
     else:
         connec.close()
         return render_template('index.html', is_logged_in=False, movie_names=movies['title'].values)
+    
+    
+@app.route('/add_review', methods=['POST'])
+def add_review():
+    if request.method == 'POST':
+        user_id = session.get('user_id')
+        if not user_id:
+            flash('You need to be logged in to add a review.')
+            return redirect(url_for('login'))
 
+        conn = get_db_connection()
+        user = conn.execute('SELECT first_name, last_name FROM users WHERE id = ?', (user_id,)).fetchone()
+        first_name = user['first_name']
+        last_name = user['last_name']
 
+        movie_id = request.form['movie_id']
+        rating = request.form['rating']
+        comment = request.form['comment']
 
+        conn.execute('INSERT INTO reviews (user_id, movie_id, rating, comment, first_name1, last_name1) VALUES (?, ?, ?, ?, ?, ?)',
+                     (user_id, movie_id, rating, comment, first_name, last_name))
+
+        conn.commit()
+        conn.close()
+
+        flash('Review added successfully.')
+        return redirect(url_for('index', movie_id=movie_id))
+
+@app.route('/delete_review', methods=['POST'])
+def delete_review():
+    if request.method == 'POST':
+        review_id = request.form['review_id']
+
+        conn = get_db_connection()
+        conn.execute('DELETE FROM reviews WHERE id = ?', (review_id,))
+        conn.commit()
+        conn.close()
+
+        flash('Review deleted successfully.')
+        return redirect(request.referrer)
 
 @app.route('/about')
 def about():
