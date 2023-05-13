@@ -129,8 +129,19 @@ def add_review():
         conn.close()
 
         flash('Review added successfully.')
-        return redirect(url_for('index', movie_id=movie_id))
-
+        # return redirect(url_for('index', movie_id=movie_id))
+        connec = get_db_connection()
+        selected_movie_name = request.form['selected_movie_name']
+        movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+        names, posters = recommend(selected_movie_name)
+        selected_movie_poster = fetch_poster(movies[movies['title'] == selected_movie_name]['movie_id'].values[0])
+        reviews = connec.execute('SELECT * FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchall()
+        avg_rating = connec.execute('SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchone()['avg_rating']
+        if 'user_id' in session:
+            is_logged_in = True
+        else:
+            is_logged_in = False
+        return render_template('recommendation.html', movie_iddd=movie_iddd, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased, reviews=reviews, avg_rating=avg_rating)
 @app.route('/delete_review', methods=['POST'])
 def delete_review():
     if request.method == 'POST':
@@ -142,7 +153,18 @@ def delete_review():
         conn.close()
 
         flash('Review deleted successfully.')
-        return redirect(request.referrer)
+        connec = get_db_connection()
+        selected_movie_name = request.form['selected_movie_name']
+        movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+        names, posters = recommend(selected_movie_name)
+        selected_movie_poster = fetch_poster(movies[movies['title'] == selected_movie_name]['movie_id'].values[0])
+        reviews = connec.execute('SELECT * FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchall()
+        avg_rating = connec.execute('SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchone()['avg_rating']
+        if 'user_id' in session:
+            is_logged_in = True
+        else:
+            is_logged_in = False
+        return render_template('recommendation.html', movie_iddd=movie_iddd, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased, reviews=reviews, avg_rating=avg_rating)
 
 @app.route('/about')
 def about():
