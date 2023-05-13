@@ -64,6 +64,8 @@
 </footer>
 <footer class="pt-2 my-md-2 pt-md-2 border-top" style="margin-left: 20px;">
 		<form action="{{ url_for('add_review') }}" method="POST">
+		<input type="hidden" name="selected_movie_name" value="{{ selected_movie_name }}">
+		<button type="submit"  style="display:none;"></button>
 		<input type="hidden" name="movie_id" value="{{ movie_iddd }}">
 			<h3 style="margin-left: 5px";>Your review for this movie</h3>
 			<div class="form-group">
@@ -98,6 +100,8 @@
 							<h6 class="card-subtitle mb-2 text-muted" style="font-size: 14px;"> Rating: {{ review.rating }}/5 - Was added {{ review.created_at }} 
 								{% if 'user_id' in session and session['user_id'] == review.user_id %}
 								<form action="{{ url_for('delete_review') }}" method="POST" style="display: inline-block;">
+									<input type="hidden" name="selected_movie_name" value="{{ selected_movie_name }}">
+									<button type="submit"  style="display:none;"></button>
 									<input type="hidden" name="review_id" value="{{ review.id }}">
 									<button type="submit" class="btn btn-danger" style="margin-left: 10px; font-size: 12px;">Delete Review</button>
 								</form>
