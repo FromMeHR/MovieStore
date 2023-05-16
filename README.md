@@ -10,10 +10,10 @@
 ﻿ 5. Movie search operations:
  ![Movie Search operation](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/28eef76c-4768-42a7-b1d5-0165373ae289)
  ![Movie Search operation 2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/0c4fe9e8-adcd-416f-96f1-892d001e17ec)
- ![Movie Search operation 3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/7b065b24-bd59-424f-9552-c86bed4e76fc)
+ ![Movie Search operation 3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/44a79fbd-eeed-48c1-965b-6a5351f5618f)
 ﻿ 6. Reviews:
- ![comment1](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/c342668e-1ae3-4074-ba34-d38c8f702121)
- ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/9ff9a368-1951-4f05-b59a-ffb31a165710)
+ ![comment1](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/6a1fc17b-2b1e-4dd4-99f7-b27dd284a5b1)
+ ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/b51684c6-c6dc-48d6-b39d-a34ef951ff8a)
+ ![comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/f5e11b25-5f47-4a4a-9bf3-7961a5ca4942)
 ﻿ 7. Buying a movie:
- ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/304f28b3-8a9c-442e-8972-d20d5fa21977)
-
+ ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/7d6d88e2-dfaa-42a6-b142-40d1af7f1efc)
