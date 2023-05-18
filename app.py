@@ -7,6 +7,7 @@ import pickle
 import pandas as pd
 import requests
 import numpy as np
+from flask_paginate import Pagination, get_page_parameter
 
 app = Flask(__name__)
 
@@ -72,6 +73,12 @@ def get_balance(user_id):
     conn.close()
     return balance[0] if balance else 0
 
+def filter_movies(all_movies, search_query):
+    filtered_movies = []
+    for movie in all_movies:
+        if search_query.lower() in movie.lower():
+            filtered_movies.append(movie)
+    return filtered_movies
 
 movie_dict = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movie_dict)
@@ -93,7 +100,7 @@ def index():
         else:
             names, posters = recommend(selected_movie_name)
             selected_movie_poster = fetch_poster(movies[movies['title'] == selected_movie_name]['movie_id'].values[0])
-            movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+            movie_iddd = movies[movies['title'] == selected_movie_name]['movie_id'].values[0]
             reviews = connec.execute('SELECT * FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchall()
             avg_rating = connec.execute('SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = ?', (movie_iddd,)).fetchone()['avg_rating']
             return redirect(url_for('recommendation', movie_iddd=movie_iddd, selected_movie_name=selected_movie_name))
@@ -116,6 +123,30 @@ def recommendation(movie_iddd, selected_movie_name):
     else:
         is_logged_in = False
     return render_template('recommendation.html', movie_iddd=movie_iddd, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased, reviews=reviews, avg_rating=avg_rating)
+
+@app.route('/all_movies', methods=['GET'])
+def all_movies():
+    if 'user_id' in session:
+        is_logged_in = True
+    else:
+        is_logged_in = False
+    all_movies = movies['title'].values
+    search_query = request.args.get('search', '')
+    per_page = 9
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    filtered_movies = filter_movies(all_movies, search_query)
+    pagination = Pagination(page=page, per_page=per_page, total=len(filtered_movies), css_framework='bootstrap4')
+
+    start_idx = (page - 1) * per_page
+    end_idx = start_idx + per_page
+    movies_subset = filtered_movies[start_idx:end_idx]
+    movies_iddd = []
+    movies_posters = []
+    for movie_title in movies_subset:
+        movie_id = movies[movies['title'] == movie_title]['movie_id'].values[0]
+        movies_iddd.append(movie_id)
+        movies_posters.append(fetch_poster(movie_id))
+    return render_template('all_movies.html', movies=movies_subset, movies_posters=movies_posters, pagination=pagination, is_logged_in=is_logged_in, page=page, per_page=per_page, movies_iddd=movies_iddd)
 
 @app.route('/add_review', methods=['POST'])
 def add_review():
@@ -142,7 +173,7 @@ def add_review():
         flash('Review added successfully.')
         # return redirect(url_for('index', movie_id=movie_id))
         selected_movie_name = request.form['selected_movie_name']
-        movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+        movie_iddd = movies[movies['title'] == selected_movie_name]['movie_id'].values[0]
         return redirect(url_for('recommendation', movie_iddd=movie_iddd, selected_movie_name=selected_movie_name))
     return redirect(url_for('index'))
 
@@ -158,7 +189,7 @@ def delete_review():
 
         flash('Review deleted successfully.')
         selected_movie_name = request.form['selected_movie_name']
-        movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+        movie_iddd = movies[movies['title'] == selected_movie_name]['movie_id'].values[0]
         return redirect(url_for('recommendation', movie_iddd=movie_iddd, selected_movie_name=selected_movie_name))
     return redirect(url_for('index'))
 
@@ -177,7 +208,7 @@ def edit_review():
 
         flash('Review updated successfully.')
         selected_movie_name = request.form['selected_movie_name']
-        movie_iddd = int(np.where(movies['title'].values == selected_movie_name)[0])
+        movie_iddd = movies[movies['title'] == selected_movie_name]['movie_id'].values[0]
         return redirect(url_for('recommendation', movie_iddd=movie_iddd, selected_movie_name=selected_movie_name))
     return redirect(url_for('index'))
 
