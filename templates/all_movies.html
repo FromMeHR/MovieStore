@@ -21,9 +21,9 @@
         .movie-container h5 {
             margin-top: 5px;
         }
-		.underline-on-hover:hover {
-			text-decoration: underline;
-		}
+	.underline-on-hover:hover {
+		text-decoration: underline;
+	}
         .header {
             display: flex;
             align-items: center;
@@ -57,14 +57,14 @@
                     <div class="row">
                 {% endif %}
                 <div class="col">
-					<div class="movie-container">
-						<a class="py-2 link-body-emphasis text-decoration-none" href="{{ url_for('recommendation', movie_iddd=movie_iddd, selected_movie_name=name) }}">
-							<img src="{{ poster }}">
-							<h5 class="text-dark text-decoration-none">
-								<span class="underline-on-hover">{{ name }}</span>
-							</h5>
-						</a>
-					</div>
+			<div class="movie-container">
+				<a class="py-2 link-body-emphasis text-decoration-none" href="{{ url_for('recommendation', movie_iddd=movie_iddd, selected_movie_name=name) }}">
+					<img src="{{ poster }}">
+					<h5 class="text-dark text-decoration-none">
+						<span class="underline-on-hover">{{ name }}</span>
+					</h5>
+				</a>
+			</div>
                 </div>
                 {% if loop.index % 3 == 0 or loop.last %}
                     </div>
