@@ -21,4 +21,4 @@
  ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/156ed67c-5ef7-411e-9e88-c9b888573ae8)
  ![comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/e6110ef8-ce8a-4216-b72b-4e19d36ce49d)
 ﻿ 8. Movie purchase:
- ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/7d6d88e2-dfaa-42a6-b142-40d1af7f1efc)
+ ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/560fddae-de3d-4b77-a489-667bd608ce4d)
