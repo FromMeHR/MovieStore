@@ -21,6 +21,7 @@
                 <option value="{{ movie_name }}">{{ movie_name }}</option>
             {% endfor %}
         </select>
-    </form>
+    </form><br>
+	<p style="font-size: 15px;">To find your movie go to <a style="margin: 0;" class="py-2 link-body-emphasis text-decoration-none" href="{{ url_for('all_movies') }}" method="GET"><strong>All movies</strong></a>. There you can find all the movies on the site and go to the purchase page by clicking on the movie title/poster.</p>
 </footer>
 {% endblock %}
