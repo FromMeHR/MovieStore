@@ -27,21 +27,32 @@
 					<div class="col">
 						<img src="{{ selected_movie_poster }}" style="width: 250px; height: auto;">
 					</div>
+					<div class="col" style="margin-right: 275px;">
+						{% if reviews %}
+							<h5 style="font-size: 20px;">Rating: <a style="margin: 0; font-weight: normal;" class="py-2 link-body-emphasis text-dark text-decoration: underline;" href="/" method="GET">FromMe:</a>
+								{{ '{:.2f}'.format(avg_rating) }}
+								<span class="card-subtitle mb-2 text-muted">
+									({{ reviews|length }})
+								</span>
+							</h5>
+						{% else %}
+							<h5 style="font-size: 20px;">Rating: <a style="margin: 0; font-weight: normal;" class="py-2 link-body-emphasis text-dark text-decoration: underline;" href="/" method="GET">FromMe:</a>
+								0
+								<span class="card-subtitle mb-2 text-muted">
+									({{ reviews|length }})
+								</span>
+							</h5>
+						{% endif %}
+						<h5 style="white-space: normal; line-height: 1.5; width: 700px;">
+							<span style="display: inline-block;">Director: <span class="card-subtitle mb-2 text-muted">{{ movie_info_director }}</span></span><br>
+							<span style="display: inline-block;">Genre: <span class="card-subtitle mb-2 text-muted">{{ movie_info_genre }}</span></span><br>
+							<span style="display: inline-block;">Kind of type: <span class="card-subtitle mb-2 text-muted">{{ movie_info_keywords }}</span></span><br>
+							<span style="display: inline-block;">Top cast: <span class="card-subtitle mb-2 text-muted">{{ movie_info_cast }}</span></span>
+						</h5>
+					</div>
 				</div>
 			</div>
-			{% if reviews %}
-		        <footer style="margin-left: 10px;">
-				<h6 class="card-subtitle mb-2 text-muted" style="font-size: 20px; display:inline-block">
-					Average rating: {{ '{:.2f}'.format(avg_rating) }}
-				</h6>
-			  </footer>
-			{% else %}
-				<footer style="margin-left: 10px;">
-					<h6 class="card-subtitle mb-2 text-muted" style="font-size: 20px; display:inline-block">
-						Average rating: 0
-					</h6>
-				</footer>
-			{% endif %}
+			<h4 style="line-height: 1.5;">About what movie "{{selected_movie_name}}":<br> <span style="font-size: 16px;" class="card-subtitle mb-2 text-muted">{{ movie_info_overview }}</span></h4>
 		</div>
 	</div>
 	<h1 style="margin-left:;">Similar movies that you can also buy on our website:</h1>
