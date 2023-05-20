@@ -30,14 +30,26 @@
         }
         .header h1 {
             margin-right: 20px;
-		}
+	}
+	.search-container {
+            background: none;
+            height: 22px;
+            width: 22px;
+	    margin: auto;
+	}
     </style>
     <div class="header">
-        <h2>You can search for a movie by entering its name:</h2>
+    	<h2>You can search for a movie by entering its name:</h2>
         <!-- Форма поиска -->
         <form action="{{ url_for('all_movies') }}" method="GET">
-            <input style="margin-left: 10px;" type="text" name="search" placeholder="Start searching">
-            <input style="margin-left: 5px;" type="submit" value="Search"></input>
+        	<input style="margin-left: 10px;" type="text" name="search" placeholder="Start searching">
+		<button style="background: none; border: none;" type="submit" aria-label="Search">
+			<svg class = "search-container" style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  role="img" viewBox="0 0 25 25">
+				<title>Search</title>
+				<circle cx="10.5" cy="10.5" r="7.5"></circle>
+				<path d="M21 21l-5.2-5.2"></path>
+			</svg>
+		</button>
         </form>
     </div>
     {% if request.args.get('search') %}
