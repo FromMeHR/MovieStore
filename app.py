@@ -86,6 +86,8 @@ similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 movies_info_about_what = pickle.load(open('movies-info-about-what.pkl', 'rb'))
 movies_info = pd.DataFrame(movies_info_about_what)
+movies_info_about_what_2 = pickle.load(open('movies-info-release_date-tagline-production_companies-production_countries.pkl', 'rb'))
+movies_info_2 = pd.DataFrame(movies_info_about_what_2)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -126,12 +128,29 @@ def recommendation(movie_iddd, selected_movie_name):
     movie_info_keywords = movies_info['keywords'][movie_iddd_info]
     movie_info_cast = movies_info['cast'][movie_iddd_info]
     movie_info_director = movies_info['crew'][movie_iddd_info]
+    if movie_iddd_info in movies_info_2['release_date'].index and pd.notnull(movies_info_2['release_date'][movie_iddd_info]): # в некоторых фильмaх какие-то значения могут отсутствовать для определённых атрибутов 
+        movie_info_release_date = movies_info_2['release_date'][movie_iddd_info]
+    else:
+        movie_info_release_date = "No information"
+    if movie_iddd_info in movies_info_2['tagline'].index and pd.notnull(movies_info_2['tagline'][movie_iddd_info]):
+        movie_info_tagline = movies_info_2['tagline'][movie_iddd_info]
+    else:
+        movie_info_tagline = "No information"
+    if movie_iddd_info in movies_info_2['production_companies'].index and pd.notnull(movies_info_2['production_companies'][movie_iddd_info]):
+        movie_info_production_companies = movies_info_2['production_companies'][movie_iddd_info]
+    else:
+        movie_info_production_companies = "No information"
+    if movie_iddd_info in movies_info_2['production_countries'].index and pd.notnull(movies_info_2['production_countries'][movie_iddd_info]):
+        movie_info_production_countries = movies_info_2['production_countries'][movie_iddd_info]
+    else:
+        movie_info_production_countries = "No information"
+    movie_iddd_similar = [movies[movies['title'] == name]['movie_id'].values[0] for name in names]
     if 'user_id' in session:
         is_logged_in = True
     else:
         is_logged_in = False
-    return render_template('recommendation.html', movie_iddd=movie_iddd, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased, 
-                           reviews=reviews, avg_rating=avg_rating, movie_info_overview=movie_info_overview,movie_info_genre=movie_info_genre,movie_info_keywords=movie_info_keywords,movie_info_cast=movie_info_cast,movie_info_director=movie_info_director)
+    return render_template('recommendation.html', movie_iddd=movie_iddd, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased, reviews=reviews, avg_rating=avg_rating, movie_info_overview=movie_info_overview, 
+                           movie_info_genre=movie_info_genre, movie_info_keywords=movie_info_keywords, movie_info_cast=movie_info_cast, movie_info_director=movie_info_director, movie_iddd_similar=movie_iddd_similar, movie_info_release_date=movie_info_release_date, movie_info_tagline=movie_info_tagline, movie_info_production_companies=movie_info_production_companies, movie_info_production_countries=movie_info_production_countries)
 
 @app.route('/all_movies', methods=['GET'])
 def all_movies():
