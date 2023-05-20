@@ -4,6 +4,11 @@
     <title>Movie</title>
 {% endblock %}
 {% block body %}
+<style>
+.underline-on-hover:hover {
+	text-decoration: underline;
+}
+</style>
 <footer style="margin-left: 20px;">
 	<h1 style="margin-left:;">You chosed:</h1>
 	<div class="container">
@@ -44,30 +49,38 @@
 							</h5>
 						{% endif %}
 						<h5 style="white-space: normal; line-height: 1.5; width: 700px;">
+							<span style="display: inline-block;">Tagline: <span class="card-subtitle mb-2 text-muted">«{{ movie_info_tagline }}»</span></span><br>
+							<span style="display: inline-block;">Release date: <span class="card-subtitle mb-2 text-muted">{{ movie_info_release_date }}</span></span><br>
+							<span style="display: inline-block;">Country of origin: <span class="card-subtitle mb-2 text-muted">{{ movie_info_production_countries }}</span></span><br>
 							<span style="display: inline-block;">Director: <span class="card-subtitle mb-2 text-muted">{{ movie_info_director }}</span></span><br>
 							<span style="display: inline-block;">Genre: <span class="card-subtitle mb-2 text-muted">{{ movie_info_genre }}</span></span><br>
+							<span style="display: inline-block;">Production companies: <span class="card-subtitle mb-2 text-muted">{{ movie_info_production_companies }}</span></span><br>
 							<span style="display: inline-block;">Kind of type: <span class="card-subtitle mb-2 text-muted">{{ movie_info_keywords }}</span></span><br>
 							<span style="display: inline-block;">Top cast: <span class="card-subtitle mb-2 text-muted">{{ movie_info_cast }}</span></span>
 						</h5>
 					</div>
 				</div>
 			</div>
-			<h4 style="line-height: 1.5;">About what movie "{{selected_movie_name}}":<br> <span style="font-size: 16px;" class="card-subtitle mb-2 text-muted">{{ movie_info_overview }}</span></h4>
+			<h4 style="line-height: 1.5;">Storyline of «{{selected_movie_name}}»:<br> <span style="font-size: 16px;" class="card-subtitle mb-2 text-muted">{{ movie_info_overview }}</span></h4>
 		</div>
 	</div>
-	<h1 style="margin-left:;">Similar movies that you can also buy on our website:</h1>
+	<h1 style="margin-left:;" class="pt-2 my-md-2 pt-md-2 border-top">Similar movies that you can also buy on our website:</h1>
 	<div class="container">
 		<div class="row">
-			{% for name in names %}
+			{% for ind in range(names|length) %}
 			<div class="col">
-				<h3 style="margin-left: 3px;">{{ name }}</h3>
+				<a class="text-dark text-decoration-none" href="{{ url_for('recommendation', movie_iddd=movie_iddd_similar[ind], selected_movie_name=names[ind]) }}">
+					<h3 class="underline-on-hover" style="margin-left: 3px;">{{ names[ind] }}</h3>
+				</a>
 			</div>
 			{% endfor %}
 		</div>
 		<div class="row">
-			{% for poster in posters %}
+			{% for ind in range(posters|length) %}
 			<div class="col">
-				<img src="{{ poster }}" style="width: 250px; height: auto;">
+				<a class="text-dark text-decoration-none" href="{{ url_for('recommendation', movie_iddd=movie_iddd_similar[ind], selected_movie_name=names[ind]) }}">
+					<img class="underline-on-hover" src="{{ posters[ind] }}" style="width: 250px; height: auto;">
+				</a>
 			</div>
 			{% endfor %}
 		</div>
@@ -78,7 +91,7 @@
 		<input type="hidden" name="selected_movie_name" value="{{ selected_movie_name }}">
 		<button type="submit"  style="display:none;"></button>
 		<input type="hidden" name="movie_id" value="{{ movie_iddd }}">
-			<h3 style="margin-left: 5px";>Your review for {{ selected_movie_name }}</h3>
+			<h3 style="margin-left: 5px";>Your review for «{{ selected_movie_name }}»</h3>
 			<div class="form-group">
 				<label for="rating">Rating:</label>
 				<select class="form-control" id="rating" name="rating" required>
