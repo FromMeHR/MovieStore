@@ -8,18 +8,18 @@
 ﻿ 4. Profile:
  ![Profile](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/37ca3d4a-0975-43df-8a56-f83bc687efb1)
 ﻿ 5. Movie search operations:
- ![all_movies](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/a62775f2-a466-4ade-9bfd-1a0413ceb65c)
- ![all_movies4](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/65349f96-338e-4596-8ee2-d3481510682d)
- ![all_movies2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/9acde8c4-1b36-45d4-8cb9-06a8484574f9)
- ![all_movies3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/27d6b454-29a0-4db3-a1ca-52587cdea421)
+ ![all_movies](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/76fe9ab8-ae53-4383-a803-46e44343ddad)
+ ![all_movies4](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/af5ed804-6908-4e60-91ef-7a777f27ae38)
+ ![all_movies2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/2fcfd1c0-a661-44f9-83b2-c5d7c76e4808)
+ ![all_movies3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/ba1b4578-cb64-4f15-89c0-30191c60247f)
 ﻿ 6. Movie purchase pages:
- ![Movie Search operation](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/e8d4c21b-9328-448f-b6bd-a2f36748f8e3)
- ![Movie Search operation 2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/266062cd-aa78-40ea-a7b8-7958f880d0ed)
- ![Movie Search operation 3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/f45c38a8-4d36-4602-a7b7-f0bbc97087f7)
- ![Movie Search operation 4](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/a489d499-ba7e-4107-9694-12eb3ba7fc18)
+ ![Movie Search operation](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/2f105c38-ce75-4e2d-a77a-127f081b80e4)
+ ![Movie Search operation 2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/6c3b3c93-b42e-43c7-a984-f027a9c44aba)
+ ![Movie Search operation 3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/51219dc2-8c09-4ed9-b39e-2cc716bc1c92)
+ ![Movie Search operation 4](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/6d58107e-7157-48fa-bae5-5de40ca44f27)
 ﻿ 7. Reviews:
  ![comment1](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/75436059-300f-4b3a-8352-f1535faa9c28)
  ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/156ed67c-5ef7-411e-9e88-c9b888573ae8)
- ![comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/46b919e5-61ff-45d5-8e4a-e7e3d03d5d9c)
+ [comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/1942989c-754c-4e3b-a626-56f8d8381286)
 ﻿ 8. Movie purchase:
  ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/560fddae-de3d-4b77-a489-667bd608ce4d)
