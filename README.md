@@ -20,6 +20,6 @@
 ﻿ 7. Reviews:
  ![comment1](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/75436059-300f-4b3a-8352-f1535faa9c28)
  ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/156ed67c-5ef7-411e-9e88-c9b888573ae8)
- [comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/1942989c-754c-4e3b-a626-56f8d8381286)
+ ![comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/1942989c-754c-4e3b-a626-56f8d8381286)
 ﻿ 8. Movie purchase:
  ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/560fddae-de3d-4b77-a489-667bd608ce4d)
