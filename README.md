@@ -23,6 +23,6 @@
  ![comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/1942989c-754c-4e3b-a626-56f8d8381286)
 ﻿ 8. Movie purchase:
  ![profile2buy](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/c1cba2de-4507-496a-b1e7-abaef80b4a6d)
-﻿ 8. Adding a movie trailer:
+﻿ 9. Adding a movie trailer:
  ![profile3addtrailer](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/4726c0bd-72be-4cd5-b279-ebf36a28ae21)
  ![inglourious](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/8853c8b1-6a7e-461e-89d2-73403fe1f683)
