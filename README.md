@@ -6,7 +6,7 @@
 ﻿ 3. Registration:
  ![sign_up](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/4dcc6eea-8466-49d5-8087-781f758b1ce2)
 ﻿ 4. Profile:
- ![Profile](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/37ca3d4a-0975-43df-8a56-f83bc687efb1)
+ ![Profile1](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/3b10e06e-2436-458b-aebe-1b8b3b1d9fee)
 ﻿ 5. Movie search operations:
  ![all_movies](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/76fe9ab8-ae53-4383-a803-46e44343ddad)
  ![all_movies4](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/af5ed804-6908-4e60-91ef-7a777f27ae38)
@@ -22,4 +22,7 @@
  ![comment2](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/156ed67c-5ef7-411e-9e88-c9b888573ae8)
  ![comment3](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/1942989c-754c-4e3b-a626-56f8d8381286)
 ﻿ 8. Movie purchase:
- ![buying a movie](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/560fddae-de3d-4b77-a489-667bd608ce4d)
+ ![profile2buy](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/c1cba2de-4507-496a-b1e7-abaef80b4a6d)
+﻿ 8. Adding a movie trailer:
+ ![profile3addtrailer](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/4726c0bd-72be-4cd5-b279-ebf36a28ae21)
+ ![inglourious](https://github.com/Maxim-Levchenko/MovieStore/assets/126081409/8853c8b1-6a7e-461e-89d2-73403fe1f683)
