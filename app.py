@@ -80,6 +80,10 @@ def filter_movies(all_movies, search_query):
             filtered_movies.append(movie)
     return filtered_movies
 
+allowed = ['mp4']
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed
+
 movie_dict = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movie_dict)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
@@ -145,13 +149,42 @@ def recommendation(movie_iddd, selected_movie_name):
     else:
         movie_info_production_countries = "No information"
     movie_iddd_similar = [movies[movies['title'] == name]['movie_id'].values[0] for name in names]
+    conn = get_db_connection()
+    trailer = conn.execute('SELECT video_name FROM trailers WHERE movie_id = ?', (movie_iddd,)).fetchone()
+    conn.close()
+    trailer_url = None
+    if trailer:
+        trailer_url = url_for('static', filename='uploads/' + trailer['video_name'])
     if 'user_id' in session:
         is_logged_in = True
     else:
         is_logged_in = False
     return render_template('recommendation.html', movie_iddd=movie_iddd, names=names, posters=posters, selected_movie_name=selected_movie_name, selected_movie_poster=selected_movie_poster, is_logged_in=is_logged_in, is_movie_purchased=is_movie_purchased, reviews=reviews, avg_rating=avg_rating, movie_info_overview=movie_info_overview, 
-                           movie_info_genre=movie_info_genre, movie_info_keywords=movie_info_keywords, movie_info_cast=movie_info_cast, movie_info_director=movie_info_director, movie_iddd_similar=movie_iddd_similar, movie_info_release_date=movie_info_release_date, movie_info_tagline=movie_info_tagline, movie_info_production_companies=movie_info_production_companies, movie_info_production_countries=movie_info_production_countries)
+                           movie_info_genre=movie_info_genre, movie_info_keywords=movie_info_keywords, movie_info_cast=movie_info_cast, movie_info_director=movie_info_director, movie_iddd_similar=movie_iddd_similar, movie_info_release_date=movie_info_release_date, movie_info_tagline=movie_info_tagline, movie_info_production_companies=movie_info_production_companies, movie_info_production_countries=movie_info_production_countries, trailer_url=trailer_url)
 
+@app.route('/upload', methods=['POST'])
+def upload():
+    if 'video' not in request.files:
+        flash('No video file found')
+        return redirect(url_for('profile'))
+    video = request.files['video']
+    if video.filename == '':
+        flash('No video selected')
+        return redirect(url_for('profile'))
+    if video and allowed_file(video.filename):
+        video.save('static/uploads/' + video.filename)
+        movie_id = request.form['movie_id']
+        video_name = request.form['video_name']
+
+        conn = get_db_connection()
+        conn.execute('INSERT INTO trailers (movie_id, video_name) VALUES (?, ?)', (movie_id, video_name))
+        conn.commit()
+        conn.close()
+        flash('Trailer uploaded successfully')
+    else:
+        flash('Invalid video file')
+    return redirect(url_for('profile'))
+    
 @app.route('/all_movies', methods=['GET'])
 def all_movies():
     if 'user_id' in session:
@@ -354,7 +387,7 @@ def buy_movie():
             conn.commit()
             conn.close()
             update_balance(user_id, -1)
-            flash("You have successfully purchased the movie for 1$!")
+            flash("You have successfully purchased the movie for $1!")
             return redirect(url_for('profile'))
     else:
         is_logged_in = False
