@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS purchased_movies;
 DROP TABLE IF EXISTS balances;
 DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS trailers;
 
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,6 +37,12 @@ CREATE TABLE reviews (
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (first_name1) REFERENCES users (first_name),
     FOREIGN KEY (last_name1) REFERENCES users (last_name)
+);
+
+CREATE TABLE trailers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_id INTEGER,
+    video_name TEXT
 );
 
 SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = ?
